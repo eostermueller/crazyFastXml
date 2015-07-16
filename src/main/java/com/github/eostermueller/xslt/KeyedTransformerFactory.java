@@ -12,16 +12,16 @@ import org.apache.commons.pool2.impl.DefaultPooledObject;
 public class KeyedTransformerFactory
     extends BaseKeyedPooledObjectFactory<String, Transformer> {
 
-	private XslLocator xslLocator = null;
+	private TextFileLocator xslLocator = null;
 
-	public KeyedTransformerFactory(XslLocator val) {
+	public KeyedTransformerFactory(TextFileLocator val) {
 		this.xslLocator = val;
 	}
     @Override
     public Transformer create(String key) throws TransformerConfigurationException {
     	
         javax.xml.transform.TransformerFactory factory = SAXTransformerFactory.newInstance();
-        Transformer transformer = factory.newTransformer(this.xslLocator.getXsl(key));
+        Transformer transformer = factory.newTransformer(this.xslLocator.getTextFileForThisFolder(key));
     	
         return transformer;
     }

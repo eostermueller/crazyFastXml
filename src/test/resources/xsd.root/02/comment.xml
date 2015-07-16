@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments:comment xmlns:comments="http://projecthdata.org/hdata/schemas/2009/06/comment" xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/comment comment.xsd ">
+  <comments:text>comments:text</comments:text>
+  <core:date>2001-12-31T12:00:00</core:date>
+  <comments:author>
+    <core:name>
+      <core:given>core:given</core:given>
+      <core:lastname>core:lastname</core:lastname>
+    </core:name>
+    <core:address>
+      <core:city>core:city</core:city>
+    </core:address>
+    <core:telecom prefered="false" use="" value=""/>
+  </comments:author>
+</comments:comment>

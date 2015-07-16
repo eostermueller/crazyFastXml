@@ -1,6 +1,7 @@
-package com.github.eostermueller.xslt;
+package com.github.eostermueller.util;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,30 +20,50 @@ import java.util.List;
  *
  */
 public class TextFileRepo {
-	File directory = null;
-	TextFileRepo(File directory) throws IOException {
+	public File directory = null;
+	FileFilter allFiles = null;
+	FileFilter onePerFolderFilter = null;
+	FileFilter xmlFileFilter = new FileFilter() {
+		public boolean accept(File pathname) {
+			boolean rc = false;
+			if (pathname.getAbsolutePath().toLowerCase().endsWith(".xml"))
+					rc = true;
+			return rc;
+		}
+	};
+	TextFileRepo(File directory, FileFilter val) throws IOException {
+		
+		this.onePerFolderFilter = val;
+		allFiles = new FileFilter() {
+
+			public boolean accept(File pathname) {
+				boolean rc = false;
+				if (onePerFolderFilter.accept(pathname) || xmlFileFilter.accept(pathname))
+					rc = true;
+				return rc;
+			}
+		};
 		this.directory = directory;
 		if (!directory.isDirectory()) {
 			throw new RuntimeException("The given file [" + directory.toString() + "] must be a directory.");
 		}
-		String[] files = directory.list();
-		for(String file : files) {
-			File f = new File(directory,file);
+		File[] files = directory.listFiles(this.allFiles);
+		for(File f : files) {
 			if (f.isFile()) {
-				if (f.getAbsolutePath().endsWith("xsl")) {
-					if (this.getXsl()!=null) {
-						throw new RuntimeException("Expected only one .xsl file to be in folder [" + directory.getAbsolutePath() + "].  Instead, found at least two:  [" + f.getAbsolutePath() + "] and [" + this.getXsl().file.getAbsolutePath() + "]");
+				if (this.onePerFolderFilter.accept(f)) {
+					if (this.getOnePerFolder()!=null) {
+						throw new RuntimeException("Expected only one file to To match " + this.onePerFolderFilter.getClass().getName() + "].  Instead, found at least two:  [" + f.getAbsolutePath() + "] and [" + this.getOnePerFolder().file.getAbsolutePath() + "]");
 					}
-					this.setXsl(new TextFileAndContents(f));
-				} else if (f.getAbsolutePath().endsWith("xml")) {
+					this.setOnePerFolder(new TextFileAndContents(f));
+				} else if (this.xmlFileFilter.accept(f)) {
 					this.getXmlFiles().add( new TextFileAndContents(f));
 				} else {
-					info("Ignoring file [" + f.getAbsolutePath() + ".  Only using .xml and .xsl files");
+					info("Ignoring file [" + f.getAbsolutePath() + ".  Only using .xml [" + this.onePerFolderFilter.getClass().getName() + "]");
 				}
 			}
 		}
-		if (this.getXsl()==null) {
-			throw new RuntimeException("Exactly one file ending in .xsl must be in the folder [" + directory.getAbsolutePath() + "].  Didn't find any.");
+		if (this.getOnePerFolder()==null) {
+			throw new RuntimeException("Exactly one file ending in [" + this.onePerFolderFilter.getClass().getName() + "] must be in the folder [" + directory.getAbsolutePath() + "].  Didn't find any.");
 		}
 		if (this.getXmlFiles().size() ==0) {
 			throw new RuntimeException("Expected to find at least one file that ends in .xml in the directory [" + directory.getAbsolutePath() + "]");
@@ -52,13 +73,13 @@ public class TextFileRepo {
 	private void info(String msg) {
 		System.out.println(msg);	
 	}
-	private TextFileAndContents xsl;
+	private TextFileAndContents oneFilePerFolder;
 	List<TextFileAndContents> xmlFiles = new ArrayList<TextFileAndContents>();
-	public TextFileAndContents getXsl() {
-		return xsl;
+	public TextFileAndContents getOnePerFolder() {
+		return oneFilePerFolder;
 	}
-	public void setXsl(TextFileAndContents xsl) {
-		this.xsl = xsl;
+	public void setOnePerFolder(TextFileAndContents file) {
+		this.oneFilePerFolder = file;
 	}
 	public List<TextFileAndContents> getXmlFiles() {
 		return xmlFiles;
@@ -73,14 +94,14 @@ public class TextFileRepo {
 	public Object dumpToString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Folder for repo [" + this.getName() + "]\n");
-		sb.append("\t\tXSL file [" + this.getXsl().file.getName() + "] with [" + this.getXmlFiles().size() + "] xml files\n");
+		sb.append("\t\tOneFilePerFolder file [" + this.getOnePerFolder().file.getName() + "] with [" + this.getXmlFiles().size() + "] xml files\n");
 		for(TextFileAndContents f : this.getXmlFiles()) {
 			sb.append("\t\t\tXML File [" + f.file.getName() + "]\n");
 		}
 			
  		return sb.toString();
 	}
-	static class TextFileAndContents {
+	public static class TextFileAndContents {
 		public TextFileAndContents(File f) throws IOException {
 			this.textFromFile = this.getFileContents(f);
 			file = f;

@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.NoSuchElementException;
 
 import javax.xml.transform.Transformer;
@@ -25,10 +28,14 @@ import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
 import org.apache.jmeter.samplers.SampleResult;
 import org.xml.sax.InputSource;
 
-import com.github.eostermueller.xslt.TextFileRepo.TextFileAndContents;
+import com.github.eostermueller.util.TextFileRepo;
+import com.github.eostermueller.util.TextFileRepos;
+import com.github.eostermueller.util.TextFileRepo.TextFileAndContents;
+import com.github.eostermueller.util.TextFileRepos.OnePerFolder;
 
 public class XsltSampler02 extends AbstractJavaSamplerClient {
 	
+	private static final String XSL_ROOT = "/xsl.root";
 	/*
 	 * Used to delimit parts of the key that will store the Transformer.
 	 */
@@ -43,28 +50,43 @@ public class XsltSampler02 extends AbstractJavaSamplerClient {
 	 */
 	@Override
 	public void setupTest(JavaSamplerContext ctx) {
-
-		String rootFolder = ctx.getParameter(PARM_XSLT_AND_FOLDER_ROOT);
-		File rootFolder_ = new File(rootFolder);
+		File rootFolder_ = null;
 		try {
-			this.repos = new TextFileRepos(rootFolder_);
-	        for(TextFileRepo repo : repos.transformationRepos){
-
-	        	for(TextFileAndContents xml : repo.getXmlFiles()) {
-	        	}
-	        }
+			
+			String rootFolder = null;
+			if (ctx!=null) {
+				rootFolder = ctx.getParameter(PARM_XSLT_AND_FOLDER_ROOT);
+			}
+			
+			if (rootFolder!=null && rootFolder.trim().length()>0) {
+				getLogger().info("Using xsl.root folder [" + rootFolder + "] from JMeter variable [" + PARM_XSLT_AND_FOLDER_ROOT + "]");
+				rootFolder_ = new File(rootFolder);
+				this.repos = new TextFileRepos(rootFolder_, TextFileRepos.OnePerFolder.XSL);
+			} else {
+				this.repos = new TextFileRepos(XsltSampler01.XSL_ROOT, TextFileRepos.OnePerFolder.XSL);
+				getLogger().info("JMeter variable [" + PARM_XSLT_AND_FOLDER_ROOT + "] is ignored.");
+			}
+			getLogger().info("Process xsl and xml files from folder [" + this.repos.root.getAbsolutePath() + "] from classpath");
 	        //Factory will get .xsl files from our home-baked test repository of xsl & xml files.
 	        this.keyedPooledObjectFactory = new KeyedTransformerFactory(this.repos);
 	        
 	        //To configure min/max and other pool parameters, 
 	        //create GenericKeyedObjectPoolConfig and pass as 2nd parm here:
 	        this.keyedPool = new GenericKeyedObjectPool<String,Transformer>(this.keyedPooledObjectFactory);
-	        
+	        			
+			
 		} catch (IOException e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
 			getLogger().error("Error reading xsl and xml files from disk. Stack trace:\n"+sw.toString(), e);
+			getLogger().error("Message:\n"+e.getMessage());
+		} catch (URISyntaxException e) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			getLogger().error("Error reading xsl and xml files from disk. Stack trace:\n"+sw.toString(), e);
+			getLogger().error("Message:\n"+e.getMessage());
 		}
 	}
     /* set up default arguments for the JMeter GUI
@@ -115,7 +137,7 @@ public class XsltSampler02 extends AbstractJavaSamplerClient {
 				try {
 					transformer = keyedPool.borrowObject(repo.getName());
 	    			transformer.transform(saxSource, new StreamResult(writer));
-	    			sb.append("#Repo:" + repo.directory.getName() + " XMl file:" + xml.file.getName() + " XSL file: " + repo.getXsl().file.getName() + "\n");
+	    			sb.append("#Repo:" + repo.directory.getName() + " XMl file:" + xml.file.getName() + " XSL file: " + repo.getOnePerFolder().file.getName() + "\n");
 	    			sb.append(writer.toString());
 	    			sb.append("\n");
 				} catch (Exception e) {
@@ -136,10 +158,25 @@ public class XsltSampler02 extends AbstractJavaSamplerClient {
         	}
         }
 	}
+	public static File getDefaultRootFolder() throws URISyntaxException {
+		URL resource = XsltSampler01.class.getResource(XSL_ROOT);
+		return Paths.get(resource.toURI()).toFile();
+	}
+	
 	public static void main(String args[]) throws IOException, TransformerException {
+		File root = null;
 		try {
-			File root = new File(args[0]);
-			TextFileRepos repos = new TextFileRepos(root);
+			XsltSampler02 sampler = new XsltSampler02();
+			sampler.setupTest(null);
+				
+			TextFileRepos repos = null;
+			if (args.length == 1 && args[0] != null) {
+				root = new File(args[0]);
+				repos = new TextFileRepos(root,OnePerFolder.XSL);
+			} else {
+				repos = new TextFileRepos(XSL_ROOT,OnePerFolder.XSL);
+			}
+			
 	        StringBuilder sb = new StringBuilder();
 	        performXslt(repos, sb);
 	        System.out.println(sb.toString());

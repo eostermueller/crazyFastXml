@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<procedure:procedure xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:procedure="http://projecthdata.org/hdata/schemas/2009/06/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/procedure procedure.xsd ">
+  <procedure:type code="" codeSystem="" displayName="" version="">procedure:type</procedure:type>
+  <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
+  <procedure:status code="" codeSystem="" displayName="" version="">procedure:status</procedure:status>
+  <procedure:product code="" codeSystem="" displayName="" version="">procedure:product</procedure:product>
+  <procedure:substance code="" codeSystem="" displayName="" version="">procedure:substance</procedure:substance>
+  <procedure:performer>
+    <core:organization>
+      <core:name>core:name</core:name>
+    </core:organization>
+  </procedure:performer>
+</procedure:procedure>

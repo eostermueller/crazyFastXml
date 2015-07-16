@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medication:medication xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:medication="http://projecthdata.org/hdata/schemas/2009/06/medication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/medication medication.xsd ">
+  <medication:product>
+    <medication:name>medication:name</medication:name>
+    <medication:code code="" codeSystem="" displayName="" version="">medication:code</medication:code>
+    <medication:lotNumber>medication:lotNumber</medication:lotNumber>
+    <medication:brandName>medication:brandName</medication:brandName>
+    <medication:manufacturer>
+      <core:name>core:name</core:name>
+    </medication:manufacturer>
+  </medication:product>
+  <medication:type code="" codeSystem="" displayName="" version="">medication:type</medication:type>
+  <medication:status code="" codeSystem="" displayName="" version="">medication:status</medication:status>
+  <medication:orderInformation experiationDate="2001-01-01" orderNumber="" quantity="0"/>
+  <medication:perscription fillNumber="" perscriptionNumber="" quantity="0"/>
+</medication:medication>

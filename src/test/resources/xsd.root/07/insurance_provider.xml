@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:guarantor xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:i="http://projecthdata.org/hdata/schemas/2009/06/insurance_provider" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/insurance_provider insurance_provider.xsd ">
+  <core:organization>
+    <core:name>core:name</core:name>
+    <core:pointOfContacts/>
+    <core:address>
+      <core:city>core:city</core:city>
+    </core:address>
+  </core:organization>
+  <core:date>2001-12-31T12:00:00</core:date>
+</i:guarantor>

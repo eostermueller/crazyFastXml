@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<provider:provider xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:provider="http://projecthdata.org/hdata/schemas/2009/06/provider" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/provider healthcare_provider.xsd ">
+  <provider:patientId>provider:patientId</provider:patientId>
+  <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
+  <provider:role code="" codeSystem="" displayName="" version="">provider:role</provider:role>
+  <provider:type code="" codeSystem="" displayName="" version="">provider:type</provider:type>
+  <core:organization>
+    <core:name>core:name</core:name>
+    <core:pointOfContacts/>
+    <core:address>
+      <core:city>core:city</core:city>
+    </core:address>
+  </core:organization>
+</provider:provider>

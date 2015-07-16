@@ -105,6 +105,9 @@ public class XmlParseSampler01 extends AbstractJavaSamplerClient {
 		HR8995,  //between 1989 and 1995
 		OTHER
 	}
+	class MyCountHandler extends DefaultHandler {
+		
+	}
 	class MyHandler extends DefaultHandler {
 		
 		CountType current = null;
@@ -121,7 +124,7 @@ public class XmlParseSampler01 extends AbstractJavaSamplerClient {
 			} else {
 				this.current = CountType.OTHER;
 			}
-			debug("current [" + this.current + "] uri[" + uri + "] localname[" + localName + "] qName[" + qName + "]");
+			//debug("current [" + this.current + "] uri[" + uri + "] localname[" + localName + "] qName[" + qName + "]");
 		}	
 		public void characters(char ch[], int start, int length) throws SAXException {
 			 

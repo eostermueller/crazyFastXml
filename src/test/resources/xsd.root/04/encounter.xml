@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<encounter:encounter xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:encounter="http://projecthdata.org/hdata/schemas/2009/06/encounter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/encounter encounter.xsd ">
+  <encounter:provider>
+    <core:organization>
+      <core:name>core:name</core:name>
+    </core:organization>
+  </encounter:provider>
+  <encounter:type code="" codeSystem="" displayName="" version="">encounter:type</encounter:type>
+  <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
+</encounter:encounter>

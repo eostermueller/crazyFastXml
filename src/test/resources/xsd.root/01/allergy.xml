@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allergy:allergy xmlns:allergy="http://projecthdata.org/hdata/schemas/2009/06/allergy" xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/allergy allergy.xsd ">
+  <allergy:product code="" codeSystem="" displayName="" version="">allergy:product</allergy:product>
+  <allergy:type code="" codeSystem="" displayName="" version="">allergy:type</allergy:type>
+  <core:date>2001-12-31T12:00:00</core:date>
+  <allergy:reaction code="" codeSystem="" displayName="" version="">allergy:reaction</allergy:reaction>
+  <allergy:severity code="" codeSystem="" displayName="" version="">allergy:severity</allergy:severity>
+</allergy:allergy>

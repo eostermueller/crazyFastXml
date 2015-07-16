@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:immunization xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:i="http://projecthdata.org/hdata/schemas/2009/06/immunization" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/immunization immunization.xsd ">
+  <i:product>
+    <i:name code="" codeSystem="" displayName="" version="">i:name</i:name>
+    <i:material code="" codeSystem="" displayName="" version="">i:material</i:material>
+    <i:manufacturer>
+      <core:name>core:name</core:name>
+    </i:manufacturer>
+  </i:product>
+  <core:date>2001-12-31T12:00:00</core:date>
+  <i:refusal>i:refusal</i:refusal>
+  <i:seriesNumber>i:seriesNumber</i:seriesNumber>
+  <i:performer>
+    <core:organization>
+      <core:name>core:name</core:name>
+    </core:organization>
+  </i:performer>
+</i:immunization>

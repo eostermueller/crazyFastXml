@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conditions:problem xmlns:conditions="http://projecthdata.org/hdata/schemas/2009/06/condition" xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/condition condition.xsd ">
+  <conditions:type code="" codeSystem="" displayName="" version="">conditions:type</conditions:type>
+  <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
+  <conditions:treatingProvider>
+    <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
+    <core:organization>
+      <core:name>core:name</core:name>
+    </core:organization>
+  </conditions:treatingProvider>
+</conditions:problem>
