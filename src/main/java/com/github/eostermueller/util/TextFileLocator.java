@@ -1,4 +1,4 @@
-package com.github.eostermueller.xslt;
+package com.github.eostermueller.util;
 
 import javax.xml.transform.stream.StreamSource;
 

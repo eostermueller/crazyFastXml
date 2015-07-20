@@ -108,7 +108,7 @@ public class TextFileRepo {
 		}
 		public File file;
 		public String textFromFile;
-		public String getFileContents(File f) throws IOException {
+		private String getFileContents(File f) throws IOException {
 			return new String(Files.readAllBytes(Paths.get(f.getAbsolutePath())), StandardCharsets.UTF_8);
 		}
 	}}

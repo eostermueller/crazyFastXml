@@ -13,8 +13,6 @@ import java.util.List;
 
 import javax.xml.transform.stream.StreamSource;
 
-import com.github.eostermueller.xslt.TextFileLocator;
-
 /**
  * Need to recode this to pull from either jar or file the file system, as detailed here:
  * http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
@@ -61,8 +59,11 @@ xslt.xml.root/
 public class TextFileRepos implements TextFileLocator {
 	public static FileFilter XSD_FILE_FILTER = new XsdFile();
 	public static FileFilter XSL_FILE_FILTER = new XslFile();
-	public List<TextFileRepo> transformationRepos = new ArrayList<TextFileRepo>();
+	public List<TextFileRepo> repos = new ArrayList<TextFileRepo>();
 	public File root = null;
+	private OnePerFolder onePerFolder;
+	private List<TextFileRepo.TextFileAndContents> unparsedRootXsdFiles = new ArrayList<TextFileRepo.TextFileAndContents>();
+	
 	
 	public TextFileRepos(String folderInClasspath, OnePerFolder onePerFolder) throws IOException, URISyntaxException {
 		
@@ -82,10 +83,33 @@ public class TextFileRepos implements TextFileLocator {
 		if (!root.isDirectory()) {
 			throw new RuntimeException("The given name [" + root.getAbsolutePath() + "] must be a directory.");
 		}
-		
+		this.onePerFolder = onePerFolder;
+		loadChildRepositories();
+		if (this.onePerFolder==OnePerFolder.XSD) {
+			loadRootXsdFiles();
+		}
+	}
+	private void loadRootXsdFiles() throws IOException {
+		FileFilter xsdFilter = new FileFilter() {
+			public boolean accept(File pathname) {
+				boolean rc = false;
+				if (pathname.getName().endsWith(".xsd"))
+					rc = true;
+				return rc;
+			}
+		};
+		File[] files = this.root.listFiles( xsdFilter );
+		for(File f : files) {
+			if (f.isFile()) {
+				TextFileRepo.TextFileAndContents t = new TextFileRepo.TextFileAndContents(f);
+				this.unparsedRootXsdFiles.add(t);
+			}
+		}
+	}
+	private void loadChildRepositories() throws IOException {
 		for(String fileName : root.list()) {
 			this.info("Processing folder [" + fileName + "].");
-			File f = new File(root, fileName);
+			File f = new File(this.root, fileName);
 			if (f.isDirectory()) {
 				FileFilter ff = null;
 				if (onePerFolder == OnePerFolder.XSD)
@@ -96,16 +120,20 @@ public class TextFileRepos implements TextFileLocator {
 					throw new RuntimeException("Not sure how to handle type [" + onePerFolder + "]");
 				
 				TextFileRepo t = new TextFileRepo(f,ff);
-				this.transformationRepos.add(t);
+				this.repos.add(t);
 			} else {
 				info("Ignoring [" + f.getAbsolutePath() + "].  See Rule 1 in the java doc for Transformations.java");
 			}
 		}
+		
+	}
+	public List<TextFileRepo> getRepos() {
+		return this.repos;
 	}
 	public String dumpToString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Root folder is [" + root.getAbsolutePath()  + "]\n");
-		for(TextFileRepo repo : this.transformationRepos) {
+		for(TextFileRepo repo : this.repos) {
 			sb.append( repo.dumpToString() );
 		}
 		return sb.toString();
@@ -120,13 +148,27 @@ public class TextFileRepos implements TextFileLocator {
 		System.out.println("Loaded xsl and xml repos:\n");
 		System.out.println(repos.dumpToString());
 	}
-	
+	public File getFile(String fileNameCriteriaWithoutPath) {
+		File foundTheFile = null;
+		for(TextFileRepo r : this.repos) {
+			if (r.getOnePerFolder().file.getName().equals(fileNameCriteriaWithoutPath))
+				foundTheFile = r.getOnePerFolder().file;	
+		}
+		if (foundTheFile==null) {
+			for(TextFileRepo.TextFileAndContents t : unparsedRootXsdFiles) {
+				if (t.file.getName().equals(fileNameCriteriaWithoutPath)) {
+					foundTheFile = t.file;
+				}
+			}
+		}
+		return foundTheFile;
+	}
 	/**
 	 * Not designed for speed -- only expecting to be used at system startup time.
 	 */
 	public TextFileRepo getTextFileRepo(String repoNameCriteria) {
 		TextFileRepo result  = null;
-		for(TextFileRepo r : this.transformationRepos) {
+		for(TextFileRepo r : this.repos) {
 			if(r.getName().equals(repoNameCriteria))
 				result = r;
 		}
@@ -135,7 +177,7 @@ public class TextFileRepos implements TextFileLocator {
 	private String getRepoNames() {
 		StringBuilder sb = new StringBuilder();
 		int count = 0;
-		for (TextFileRepo r : this.transformationRepos) {
+		for (TextFileRepo r : this.repos) {
 			if (count++>0)
 				sb.append(",");
 			sb.append(r.getName());

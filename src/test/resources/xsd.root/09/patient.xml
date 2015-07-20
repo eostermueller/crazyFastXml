@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:birthPlace xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:p="http://projecthdata.org/hdata/schemas/2009/06/patient_information" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/patient_information patient.xsd ">
+ 
   <core:address>
     <core:streetAddress>core:streetAddress</core:streetAddress>
     <core:city>core:city</core:city>
@@ -7,4 +8,5 @@
     <core:zip>core:zip</core:zip>
     <core:country>core:country</core:country>
   </core:address>
+
 </p:birthPlace>

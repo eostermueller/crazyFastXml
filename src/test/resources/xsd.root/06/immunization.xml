@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<i:immunization xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:i="http://projecthdata.org/hdata/schemas/2009/06/immunization" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/immunization immunization.xsd ">
+<i:immunization 
+	xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" 
+	xmlns:i="http://projecthdata.org/hdata/schemas/2009/06/immunization" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/immunization immunization.xsd ">
   <i:product>
     <i:name code="" codeSystem="" displayName="" version="">i:name</i:name>
     <i:material code="" codeSystem="" displayName="" version="">i:material</i:material>
@@ -12,7 +16,50 @@
   <i:seriesNumber>i:seriesNumber</i:seriesNumber>
   <i:performer>
     <core:organization>
-      <core:name>core:name</core:name>
+	  <core:name>core:name</core:name>
+	  <core:pointOfContacts>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	  </core:pointOfContacts>
+	  <core:address>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:city>core:city</core:city>
+	    <core:stateOrProvince>core:stateOrProvince</core:stateOrProvince>
+	    <core:zip>core:zip</core:zip>
+	    <core:country>core:country</core:country>
+	  </core:address>
+      
     </core:organization>
   </i:performer>
 </i:immunization>

@@ -4,11 +4,50 @@
   <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
   <provider:role code="" codeSystem="" displayName="" version="">provider:role</provider:role>
   <provider:type code="" codeSystem="" displayName="" version="">provider:type</provider:type>
-  <core:organization>
-    <core:name>core:name</core:name>
-    <core:pointOfContacts/>
-    <core:address>
-      <core:city>core:city</core:city>
-    </core:address>
-  </core:organization>
+    <core:organization>
+	  <core:name>core:name</core:name>
+	  <core:pointOfContacts>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	  </core:pointOfContacts>
+	  <core:address>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:city>core:city</core:city>
+	    <core:stateOrProvince>core:stateOrProvince</core:stateOrProvince>
+	    <core:zip>core:zip</core:zip>
+	    <core:country>core:country</core:country>
+	  </core:address>
+      
+    </core:organization>
 </provider:provider>

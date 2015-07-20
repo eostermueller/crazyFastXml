@@ -116,7 +116,7 @@ public class XsltSampler01 extends AbstractJavaSamplerClient {
 	
 	private static void performXslt(TextFileRepos repos, StringBuilder sb) throws TransformerException {
 		
-        for(TextFileRepo repo : repos.transformationRepos){
+        for(TextFileRepo repo : repos.repos){
 
         	for(TextFileAndContents xml : repo.getXmlFiles()) {
                 SAXSource saxSource = new SAXSource(new InputSource( new StringReader(xml.textFromFile) ));

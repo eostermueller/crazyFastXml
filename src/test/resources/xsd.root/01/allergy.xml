@@ -1,8 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<allergy:allergy xmlns:allergy="http://projecthdata.org/hdata/schemas/2009/06/allergy" xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/allergy allergy.xsd ">
-  <allergy:product code="" codeSystem="" displayName="" version="">allergy:product</allergy:product>
-  <allergy:type code="" codeSystem="" displayName="" version="">allergy:type</allergy:type>
+<allergy:allergy 
+	xmlns:allergy="http://projecthdata.org/hdata/schemas/2009/06/allergy" 
+	xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/allergy allergy.xsd ">
+  <allergy:product code="" codeSystem="" displayName="" version=""> MyTypeOfAllerge</allergy:product>
+  <allergy:type code="" codeSystem="" displayName="" version="">420134006</allergy:type>
   <core:date>2001-12-31T12:00:00</core:date>
   <allergy:reaction code="" codeSystem="" displayName="" version="">allergy:reaction</allergy:reaction>
-  <allergy:severity code="" codeSystem="" displayName="" version="">allergy:severity</allergy:severity>
+    <allergy:severity code="" codeSystem="" displayName="" version="">allergy:reaction</allergy:severity>
+    <core:informationSource >
+    	<core:author>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+    	</core:author>
+    	<core:date>2001-12-31T12:00:00</core:date>
+    	<core:reference></core:reference>
+    	<core:informant>
+		  <core:person>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+		  </core:person>
+    	</core:informant>    
+    </core:informationSource>
+    <core:description>
+    	<core:text>      
+      This section is used to describe a patients allergies and intolerances to various substances.  The section defines a number of 
+      codedValue sections which are constrained to particular coding system (SNOMED CT) which are described below.
+      
+      The date element is used to state the date of the last reaction to the allergy or intolerance.
+      
+      The product element is a coded value used to describe the substance the patient has the allergy or intolerance too.  There currently is 
+      not a constraint defined on the code system or code values which can be used to coded the product. At the very least a free text description
+      the substance must be supplied as the value of the product element with implementers free to choose the coding system of their choice.
+      
+      
+      This section also contains optional informationSource and description elements which are defined and documented in the 
+      abstractSection type declared in the hdata core.xsd schema file.
+    	</core:text>
+    	  <core:codedValue code="" codeSystem="" displayName="" version="">allergy:reaction</core:codedValue>    	
+    </core:description>
 </allergy:allergy>

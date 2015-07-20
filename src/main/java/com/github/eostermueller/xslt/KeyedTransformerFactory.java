@@ -9,6 +9,8 @@ import org.apache.commons.pool2.BasePooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
 
+import com.github.eostermueller.util.TextFileLocator;
+
 public class KeyedTransformerFactory
     extends BaseKeyedPooledObjectFactory<String, Transformer> {
 

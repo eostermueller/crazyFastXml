@@ -1,4 +1,4 @@
-package com.github.eostermueller.parsexml;
+package com.github.eostermueller.parse;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

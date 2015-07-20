@@ -13,4 +13,61 @@
   <medication:status code="" codeSystem="" displayName="" version="">medication:status</medication:status>
   <medication:orderInformation experiationDate="2001-01-01" orderNumber="" quantity="0"/>
   <medication:perscription fillNumber="" perscriptionNumber="" quantity="0"/>
+    <core:informationSource >
+    	<core:author>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+    	</core:author>
+    	<core:date>2001-12-31T12:00:00</core:date>
+    	<core:reference></core:reference>
+    	<core:informant>
+		  <core:person>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+		  </core:person>
+    	</core:informant>    
+    </core:informationSource>
+  
 </medication:medication>

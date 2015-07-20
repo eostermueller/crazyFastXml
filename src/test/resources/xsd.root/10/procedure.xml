@@ -1,13 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <procedure:procedure xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:procedure="http://projecthdata.org/hdata/schemas/2009/06/procedure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/procedure procedure.xsd ">
   <procedure:type code="" codeSystem="" displayName="" version="">procedure:type</procedure:type>
+ 
   <core:dateRange high="2001-12-31T12:00:00" low="2001-12-31T12:00:00"/>
   <procedure:status code="" codeSystem="" displayName="" version="">procedure:status</procedure:status>
   <procedure:product code="" codeSystem="" displayName="" version="">procedure:product</procedure:product>
   <procedure:substance code="" codeSystem="" displayName="" version="">procedure:substance</procedure:substance>
   <procedure:performer>
     <core:organization>
-      <core:name>core:name</core:name>
+	  <core:name>core:name</core:name>
+	  <core:pointOfContacts>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	    <pointOfContact>
+	      <core:name>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:given>core:given</core:given>
+	        <core:lastname>core:lastname</core:lastname>
+	      </core:name>
+	    </pointOfContact>
+	  </core:pointOfContacts>
+	  <core:address>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:streetAddress>core:streetAddress</core:streetAddress>
+	    <core:city>core:city</core:city>
+	    <core:stateOrProvince>core:stateOrProvince</core:stateOrProvince>
+	    <core:zip>core:zip</core:zip>
+	    <core:country>core:country</core:country>
+	  </core:address>
+      
     </core:organization>
   </procedure:performer>
+    <core:informationSource >
+    	<core:author>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+    	</core:author>
+    	<core:date>2001-12-31T12:00:00</core:date>
+    	<core:reference></core:reference>
+    	<core:informant>
+		  <core:person>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+		  </core:person>
+    	</core:informant>    
+    </core:informationSource>
+  
 </procedure:procedure>

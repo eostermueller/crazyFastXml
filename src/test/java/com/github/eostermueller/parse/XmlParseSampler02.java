@@ -1,4 +1,4 @@
-package com.github.eostermueller.parsexml;
+package com.github.eostermueller.parse;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -21,6 +21,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import com.github.eostermueller.parse.SAXParserPool;
 
 public class XmlParseSampler02 extends XmlParseSampler01 {
 	private static SAXParserPool pool = new SAXParserPool();

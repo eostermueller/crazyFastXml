@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <comments:comment xmlns:comments="http://projecthdata.org/hdata/schemas/2009/06/comment" xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/comment comment.xsd ">
-  <comments:text>comments:text</comments:text>
+  <comments:text>
+      This section is used to describe a patients healthcare provider.
+      
+      patientId element is the id of the patient in the providers organization.
+     
+      The dateRange element is used to define the date range the provider supplied service
+     
+     The role element is a codedValue used to define the role the provider played in the treatment of the patient.
+     
+     The type element is a codedValue used to define the type of provider , such as PCP, Physical Therapy ... 
+     
+     Both the role and type elements do not currently constrain the codedValue attributes to any particular code system. At the very least
+     however free text descriptions of each must be provided as the value of each element.
+     
+     The provider itself is defined as either a person or an organization element. Documentation of each is contained in the hData core.xsd schema
+     file.
+     
+     This section also contains optional informationSource and description elements defined and documented in the core.xsd schema file.
+     
+  
+  comments:text</comments:text>
+ 
   <core:date>2001-12-31T12:00:00</core:date>
-  <comments:author>
-    <core:name>
-      <core:given>core:given</core:given>
-      <core:lastname>core:lastname</core:lastname>
-    </core:name>
-    <core:address>
-      <core:city>core:city</core:city>
-    </core:address>
-    <core:telecom prefered="false" use="" value=""/>
-  </comments:author>
+
+		  <comments:author>
+		    <core:name>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:given>core:given</core:given>
+		      <core:lastname>core:lastname</core:lastname>
+		    </core:name>
+		    <core:address>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+			  <core:streetAddress>10531 Pluto Way</core:streetAddress>
+		      <core:city>Tombaugh</core:city>
+		      <core:stateOrProvince>CA</core:stateOrProvince>
+		      <core:zip>72953</core:zip>
+		      <core:country>USA</core:country>
+		    </core:address>
+		    <core:telecom prefered="false" use="" value=""/>
+		  </comments:author>
 </comments:comment>

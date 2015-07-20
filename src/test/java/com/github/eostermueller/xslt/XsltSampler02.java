@@ -39,7 +39,7 @@ public class XsltSampler02 extends AbstractJavaSamplerClient {
 	/*
 	 * Used to delimit parts of the key that will store the Transformer.
 	 */
-	private static final String PARM_XSLT_AND_FOLDER_ROOT = "xslt.and.xml.folder.root";
+	private static final String PARM_XSLT_AND_FOLDER_ROOT = "xsl.root.parm";
 	TextFileRepos repos = null;
 	static KeyedPooledObjectFactory keyedPooledObjectFactory = null;
 	static KeyedObjectPool<String,Transformer> keyedPool = null;
@@ -127,7 +127,7 @@ public class XsltSampler02 extends AbstractJavaSamplerClient {
 	 */
 	private static void performXslt(TextFileRepos repos, StringBuilder sb) throws TransformerException {
 		
-        for(TextFileRepo repo : repos.transformationRepos){
+        for(TextFileRepo repo : repos.repos){
 
         	for(TextFileAndContents xml : repo.getXmlFiles()) {
                 SAXSource saxSource = new SAXSource(new InputSource( new StringReader(xml.textFromFile) ));
