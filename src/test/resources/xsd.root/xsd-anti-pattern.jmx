@@ -13,15 +13,15 @@
     <hashTree>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - Stepping Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">4</stringProp>
+        <stringProp name="ThreadGroup.num_threads">8</stringProp>
         <stringProp name="Threads initial delay">0</stringProp>
-        <stringProp name="Start users count">4</stringProp>
+        <stringProp name="Start users count">2</stringProp>
         <stringProp name="Start users count burst">0</stringProp>
-        <stringProp name="Start users period">30</stringProp>
+        <stringProp name="Start users period">60</stringProp>
         <stringProp name="Stop users count">5</stringProp>
         <stringProp name="Stop users period">1</stringProp>
-        <stringProp name="flighttime">900</stringProp>
-        <stringProp name="rampUp">5</stringProp>
+        <stringProp name="flighttime">60</stringProp>
+        <stringProp name="rampUp">0</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
@@ -148,15 +148,15 @@
         <collectionProp name="COMPOSITE_CFG">
           <collectionProp name="">
             <stringProp name="1267279877">jp@gc - Transactions per Second</stringProp>
-            <stringProp name="1267279877">jp@gc - Transactions per Second</stringProp>
-            <stringProp name="-886777770">jp@gc - PerfMon Metrics Collector</stringProp>
+            <stringProp name="-243013315">jp@gc - Response Times Over Time</stringProp>
             <stringProp name="245914917">jp@gc - Active Threads Over Time</stringProp>
+            <stringProp name="-886777770">jp@gc - PerfMon Metrics Collector</stringProp>
           </collectionProp>
           <collectionProp name="">
-            <stringProp name="-1440349509">XmlParseSampler01 (success)</stringProp>
-            <stringProp name="1057666428">XmlParseSampler02 (success)</stringProp>
-            <stringProp name="-1804683397">localhost CPU</stringProp>
+            <stringProp name="117711132">Successful Transactions per Second</stringProp>
+            <stringProp name="-1549391110">Overall Response Times</stringProp>
             <stringProp name="2133254370">Overall Active Threads</stringProp>
+            <stringProp name="-1804683397">localhost CPU</stringProp>
           </collectionProp>
         </collectionProp>
       </kg.apc.jmeter.vizualizers.CompositeResultCollector>
@@ -242,11 +242,17 @@
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="metricConnections">
-          <collectionProp name="917712290">
+          <collectionProp name="598699357">
             <stringProp name="-1204607085">localhost</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="66952">CPU</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-887328209">system</stringProp>
+          </collectionProp>
+          <collectionProp name="-1371861099">
+            <stringProp reference="../../collectionProp/stringProp"/>
+            <stringProp reference="../../collectionProp/stringProp[2]"/>
+            <stringProp reference="../../collectionProp/stringProp[3]"/>
+            <stringProp name="3599307">user</stringProp>
           </collectionProp>
         </collectionProp>
       </kg.apc.jmeter.perfmon.PerfMonCollector>
