@@ -71,7 +71,7 @@ public class XmlValidateSampler02  extends AbstractJavaSamplerClient {
 			this.schemaRepo = new SchemaRepo(schemaFinder, this.ynUseCache);
 				
 			
-		} catch (IOException | URISyntaxException e) {
+		} catch (Exception e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
