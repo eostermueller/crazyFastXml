@@ -29,7 +29,8 @@ public class XmlParseSampler01 extends AbstractJavaSamplerClient {
 	/*
 	 * HR = Homicide Rate per 100k people
 	 */
-	private static final String XML_INPUT_FILE = "/NCORV.xml";
+	//private static final String XML_INPUT_FILE = "/NCORV.xml";
+	private static final String XML_INPUT_FILE = "/xml.root/NCORV.xml";
 	String xml = null;
 	/*
 	 * (non-Javadoc)
@@ -37,6 +38,7 @@ public class XmlParseSampler01 extends AbstractJavaSamplerClient {
 	 */
 	@Override
 	public void setupTest(JavaSamplerContext ctx) {
+		//com.github.eostermueller.util.Util.initSlowXML();
 		InputStream xmlStream = XmlParseSampler01.class.getResourceAsStream(XML_INPUT_FILE);
 		this.xml = new Scanner(xmlStream,"UTF-8").useDelimiter("\\A").next();
 		System.out.println("Found [" + xml.length() + "] bytes in the xml input file [" + XML_INPUT_FILE + "]");
